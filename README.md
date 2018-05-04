@@ -46,10 +46,11 @@ you have to selection App Engine service account, create credencials and downloa
 4. Add properties to connect Google App Engine
 go to file application.properties and fill the next empty properties as this example.
 
->spring.cloud.gcp.sql.database-name= YOUR_DATABASE_NAME
- spring.cloud.gcp.sql.instance-connection-name= YOUR:INTANCE:NAME *   	spring.datasource.username= YOUR_DATABASE_USER
-spring.datasource.password= YOUR_DATABASE_PASSWORD
-spring.cloud.gcp.project-id= YOUR_PROJECT_ID
+> * spring.cloud.gcp.sql.database-name= YOUR_DATABASE_NAME
+ * spring.cloud.gcp.sql.instance-connection-name= YOUR:INTANCE:NAME 
+ * spring.datasource.username= YOUR_DATABASE_USER
+* spring.datasource.password= YOUR_DATABASE_PASSWORD
+* spring.cloud.gcp.project-id= YOUR_PROJECT_ID
 
 ## Deploy To Google AppEngine
 
