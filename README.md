@@ -64,3 +64,50 @@ Opcional : En el archivo pom.xml en la línea 76 en configuration project pegar 
 borrar directorios com/example/ → jdbc y jpa borrar los archivos de resources/ sql data.sql y schema.sql
 
 opcional →refactorizar el nombre del paquete com.example con esto se tiene un proyecto limpio
+
+##Inicio rapido , Flexible.
+
+Descargar un proyecto de spring initializer con dependencia web.
+
+agregar al Pom 
+
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>RELEASE</version>
+            </dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
+                <version>RELEASE</version>
+            </dependency>
+            
+     Agregar a properties
+     
+     spring.cloud.gcp.sql.database-name=testMotor
+spring.cloud.gcp.sql.instance-connection-name=
+spring.cloud.gcp.project-id=
+spring.datasource.initialization-mode=always
+spring.datasource.continue-on-error=true
+spring.datasource.username=
+spring.datasource.password=
+spring.cloud.gcp.credentials.location=file:./src/main/resources/key.json
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.database-platform=org.hibernate.dialect.MySQL55Dialect
+
+Agrega un objeto de tipo @Entity
+mvn spring-boot:run
+mira en la consola como hace una conexión efectiva y se crea la tabla en la base de datos
